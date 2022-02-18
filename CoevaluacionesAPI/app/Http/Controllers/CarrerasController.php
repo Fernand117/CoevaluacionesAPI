@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarrerasModel;
 use Illuminate\Http\Request;
 
 class CarrerasController extends Controller
@@ -28,7 +29,7 @@ class CarrerasController extends Controller
     public function editarCarrera(Request $request)
     {
         $datos = $request->all();
-        $id = CarrerasModel::find($datos['idCarrera']);
+        $carreras = CarrerasModel::find($datos['idCarrera']);
 
         $carreras->nombre = $datos['nombre'];
         $carreras->clave = $datos['clave'];
@@ -41,7 +42,7 @@ class CarrerasController extends Controller
     public function eliminarCarrera(Request $request)
     {
         $datos = $request->all();
-        $carreras = CarreraModel::find($datos['idCarrera']);
+        $carreras = CarrerasModel::find($datos['idCarrera']);
         $carreras->nombre= 'nombre';
         $carreras->clave= 'clave';
         $carreras->estado = '0';

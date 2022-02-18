@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('Modalidad');
             $table->string('Clave');
             $table->string('Estado');
-            $table->string('estatus');
             $table->timestamps();
         });
     }
