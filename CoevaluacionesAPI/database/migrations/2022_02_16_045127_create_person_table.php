@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('materno');
             $table->string('nombre');
             
-            $table->boolean('estatus');
+            $table->boolean('estado');
             $table->unsignedBigInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();

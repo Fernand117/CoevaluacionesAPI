@@ -16,7 +16,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $data = Person::where('estatus','=',1)->get();
+        $data = Person::where('estado','=',1)->get();
         $personas = [];
         foreach($data as $key => $value){
            $usuarios[$key] = [
@@ -26,7 +26,7 @@ class UsuarioController extends Controller
                 'nombre'=>$value['nombre'],
                 
                 'correo'=>$value->usuarios->email,
-                'estatus'=>$value['estatus'],
+                'estado'=>$value['estado'],
              ];
         }
         return response()->json($usuarios);
@@ -53,7 +53,7 @@ class UsuarioController extends Controller
             $persona->paterno =  $datos['paterno'];
             $persona->materno =  $datos['materno'];
             $persona->nombre =  $datos['nombre'];
-            $persona->estatus=1;
+            $persona->estado=1;
             $persona->id_usuario=$usuarios->id;
             $persona->save();
             DB::commit();
@@ -131,7 +131,7 @@ class UsuarioController extends Controller
     {
         //
         $persona = Person::find($id);
-        $persona->estatus=0;
+        $persona->estado=0;
         $persona->update();
         return response()->json(array('success' => true));
     }
