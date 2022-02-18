@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CampusModel;
 use Exception;
 use Illuminate\Http\Request;
+<<<<<<< Updated upstream
+use TheSeer\Tokenizer\Exception;
+use Illuminate\Support\Facades\App;
 use App\Models\CampusModel;
+=======
+>>>>>>> Stashed changes
 use Illuminate\Support\Facades\DB;
 
 class CampusController extends Controller
@@ -31,9 +37,15 @@ class CampusController extends Controller
             DB::beginTransaction();
             try {
                 $campus = new CampusModel();
+<<<<<<< Updated upstream
+                $campus->Nombre =  $datos['Nombre'];
+                $campus->Clave = $datos['Clave'];
+                $campus->Estado = $datos['Estado'];
+=======
                 $campus->nombre =  $datos['Nombre'];
                 $campus->clave = $datos['Clave'];
                 $campus->estado = $datos['Estado'];
+>>>>>>> Stashed changes
                 $campus->save();
 
                 DB::commit();
@@ -47,7 +59,11 @@ class CampusController extends Controller
         {
             //
             $otraVar = CampusModel::find($id);
+<<<<<<< Updated upstream
+            
+=======
 
+>>>>>>> Stashed changes
             $masvar = [
                 'id'=>$otraVar['id'],
                 'nombre'=>$otraVar['Nombre'],
@@ -63,9 +79,15 @@ class CampusController extends Controller
             DB::beginTransaction();
             try {
                 $campus = CampusModel::find($id);
+<<<<<<< Updated upstream
+                $campus->Nombre =  $datos['Nombre'];
+                $campus->Clave =  $datos['Clave'];
+                $campus->Estado =  $datos['Estado'];
+=======
                 $campus->nombre =  $datos['Nombre'];
                 $campus->clave =  $datos['Clave'];
                 $campus->estado =  $datos['Estado'];
+>>>>>>> Stashed changes
                 $campus->update();
 
                 DB::commit();
@@ -79,9 +101,15 @@ class CampusController extends Controller
     }
     public function destroy($id)
         {
+<<<<<<< Updated upstream
+            
+            $campus = CampusModel::find($id);
+            $campus->Estado=0;
+=======
 
             $campus = CampusModel::find($id);
-            $campus->estado=0;
+            $campus->estado='0';
+>>>>>>> Stashed changes
             $campus->update();
             return response()->json(array('success' => true));
         }

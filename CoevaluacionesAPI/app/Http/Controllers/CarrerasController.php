@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< Updated upstream
+=======
 use App\Models\CarrerasModel;
+>>>>>>> Stashed changes
 use Illuminate\Http\Request;
 
 class CarrerasController extends Controller
 {
+<<<<<<< Updated upstream
+    //
+=======
+ //
     public function listarCarreras()
     {
         $carreras = CarrerasModel::all();
@@ -16,25 +23,22 @@ class CarrerasController extends Controller
     public function crearGrupo(Request $request)
     {
         $datos = $request->all();
-        $carreras = new CarrerasModel();
+        $grado = new CarrerasModel();
 
-        $carreras->nombre = $datos['nombre'];
-        $carreras->clave= $datos['clave'];
-        $carreras->estado = '1';
-        $carreras->save();
+        $grado->grado = $datos['carerras'];
+        $grado->estado = '1';
+        $grado->save();
 
-        return response()->json(['Status' => 200, 'Mensaje' => 'generado correctamente']);
+        return response()->json(['Status' => 200, 'Mensaje' => 'Carrera generado correctamente']);
     }
 
     public function editarCarrera(Request $request)
     {
         $datos = $request->all();
-        $carreras = CarrerasModel::find($datos['idCarrera']);
+        $grado = CarrerasModel::find($datos['idCarrera']);
 
-        $carreras->nombre = $datos['nombre'];
-        $carreras->clave = $datos['clave'];
-        $carreras->estado = '1';
-        $carreras->update();
+        $grado->grado = $datos['carrera'];
+        $grado->update();
 
         return response()->json(['Status' => 200, 'Mensaje' => 'actualizado correctamente']);
     }
@@ -42,13 +46,12 @@ class CarrerasController extends Controller
     public function eliminarCarrera(Request $request)
     {
         $datos = $request->all();
-        $carreras = CarrerasModel::find($datos['idCarrera']);
-        $carreras->nombre= 'nombre';
-        $carreras->clave= 'clave';
-        $carreras->estado = '0';
-        $carreras->update();
+        $grado = CarrerasModel::find($datos['idCarrera']);
+        $grado->estado = '0';
+        $grado->update();
 
         return response()->json(['Status' => 200, 'Mensaje' => 'eliminado correctamente']);
 
     }
+>>>>>>> Stashed changes
 }
