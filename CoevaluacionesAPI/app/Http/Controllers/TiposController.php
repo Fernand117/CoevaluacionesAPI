@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\tipos;
-use DB;
+use Exception;
+use Illuminate\Support\Facades\DB;
 
 class TiposController extends Controller
 {
@@ -39,7 +40,7 @@ class TiposController extends Controller
         $datos = $request->all();
         DB::beginTransaction();
         try {
-            
+
             $tipo = new tipos();
             $tipo->tipos_usuarios =  $datos['tipos_usuarios'];
             $tipo->estado=1;
@@ -63,12 +64,12 @@ class TiposController extends Controller
     {
         //
         $otraVar = tipos::find($id);
-        
+
         $masvar = [
             'id'=>$otraVar['id'],
             'tipos_usuarios'=>$otraVar['tipos_usuarios'],
         ];
-        return response()->json($masvar);        
+        return response()->json($masvar);
     }
 
     /**
@@ -105,7 +106,7 @@ class TiposController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $tipo = tipos::find($id);
         $tipo->estado=0;
         $tipo->update();
