@@ -14,7 +14,7 @@ class ModalidadesController extends Controller
     
 
          public function index(){
-        $data = ModalidadesModel::where('estatus','=',1)->get();
+        $data = ModalidadesModel::where('Estado','=',1)->get();
         $Modalidades= [];
         foreach($data as $key => $value){
            $Modalidades[$key] = [

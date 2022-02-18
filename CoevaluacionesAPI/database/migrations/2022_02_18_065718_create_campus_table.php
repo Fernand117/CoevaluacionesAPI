@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('campus', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('clave')
-            $table->integer('estado');
+            $table->string('clave');
+            $table->Boleand('estado');
             $table->timestamps();
         });
     }
