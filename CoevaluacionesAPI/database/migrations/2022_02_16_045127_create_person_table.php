@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('paterno');
             $table->string('materno');
             $table->string('nombre');
-            
-            $table->boolean('estado');
+
+            $table->string('estado');
             $table->unsignedBigInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();

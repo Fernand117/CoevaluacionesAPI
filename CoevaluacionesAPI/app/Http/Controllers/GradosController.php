@@ -13,7 +13,7 @@ class GradosController extends Controller
         return response()->json(['Status' => 200, 'Mensaje' => 'Lista de grados actuales', 'Datos' => $grados], 200);
     }
 
-    public function crearGrupo(Request $request)
+    public function crearGrado(Request $request)
     {
         $datos = $request->all();
         $grado = new GradosModel();

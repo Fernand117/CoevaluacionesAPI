@@ -16,9 +16,9 @@ class PeriodosController extends Controller
    public function crearPeriodos(Request $request)
     {
         $datos = $request->all();
-        $periodos = new PeridosModel();
+        $periodos = new PeriodosModel();
 
-        $peridos->periodos = $datos['peridos'];
+        $periodos->periodos = $datos['peridos'];
         $periodos->estado = '1';
         $periodos->save();
 
@@ -29,7 +29,7 @@ class PeriodosController extends Controller
         $datos = $request->all();
         $periodos = PeriodosModel::find($datos['idPeriodo']);
 
-        $periodo->periodo = $datos['periodo'];
+        $periodos->periodo = $datos['periodo'];
         $periodos->update();
 
         return response()->json(['Status' => 200, 'Mensaje' => 'Periodo actualizado ']);
@@ -37,9 +37,9 @@ class PeriodosController extends Controller
     public function eliminarPeriodos(Request $request)
     {
         $datos = $request->all();
-        $peridos = PeriodosModel::find($datos['idGrado']);
+        $periodos = PeriodosModel::find($datos['idGrado']);
         $periodos->estado = '0';
-        $peridos->update();
+        $periodos->update();
 
         return response()->json(['Status' => 200, 'Mensaje' => 'Periodo eliminado']);
     }

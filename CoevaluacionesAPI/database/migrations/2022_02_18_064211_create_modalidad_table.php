@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('modalidad', function (Blueprint $table) {
             $table->id();
             $table->string('Modalidad');
-            $table->integer('Clave');
+            $table->string('Clave');
             $table->string('Estado');
-            $table->boolean('estatus');
+            $table->string('estatus');
             $table->timestamps();
         });
     }
