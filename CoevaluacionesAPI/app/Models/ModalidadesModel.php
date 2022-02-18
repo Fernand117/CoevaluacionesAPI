@@ -10,6 +10,6 @@ class ModalidadesModel extends Model
     use HasFactory;
     protected $table = 'modalidades';
     protected $fillabel = [
-        'Modalidad', 'Clave', 'Estado'
+        'modalidad', 'clave', 'estado'
     ];
 }
