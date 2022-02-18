@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CampusModel extends Model
+class tipos extends Model
 {
     use HasFactory;
-    protected $table = 'campus';
-    protected $fillabel = [
-        'nombre', 'clave', 'estado'
+    protected $table="tipos";
+    protected $fillable=[
+        'tipos_usuarios'
     ];
 }
