@@ -16,30 +16,30 @@ class PeriodosController extends Controller
    public function crearPeriodos(Request $request)
     {
         $datos = $request->all();
-        $periodos = new PeridosModel();
+        $periodo = new PeridosModel();
 
-        $peridos->periodos = $datos['peridos'];
-        $periodos->estado = '1';
-        $periodos->save();
-
+        $periodo->periodo = $datos['peridos'];
+        $periodo->estado = '1';
+        $periodo->save();
+        
         return response()->json(['Status' => 200, 'Mensaje' => 'Periodo Generado ']);
     }
     public function editarPeriodos(Request $request)
     {
         $datos = $request->all();
-        $periodos = PeriodosModel::find($datos['idPeriodo']);
+        $periodo = PeriodosModel::find($datos['idPeriodo']);
 
         $periodo->periodo = $datos['periodo'];
-        $periodos->update();
+        $periodo->update();
 
         return response()->json(['Status' => 200, 'Mensaje' => 'Periodo actualizado ']);
     }
     public function eliminarPeriodos(Request $request)
     {
         $datos = $request->all();
-        $peridos = PeriodosModel::find($datos['idGrado']);
-        $periodos->estado = '0';
-        $peridos->update();
+        $periodo = PeriodosModel::find($datos['idGrado']);
+        $periodo->estado = '0';
+        $periodo->update();
 
         return response()->json(['Status' => 200, 'Mensaje' => 'Periodo eliminado']);
     }
