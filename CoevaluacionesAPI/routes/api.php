@@ -36,3 +36,8 @@ Route::get('grados', [GradosController::class, 'GradosController@listarGrados'])
 Route::post('registrar/grados', [GradosController::class, 'GradosController@crearGrado']);
 Route::put('editar/grados', [GradosController::class, 'GradosController@editarGrado']);
 Route::delete('eliminar/grado', [GradosController::class, 'GradosController@eliminarGrado']);
+
+Route::get('grupos', [GruposController::class, 'GruposController@listarGrupos']);
+Route::post('registrar/grupos', [GruposController::class, 'GruposController@crearGrupos']);
+Route::put('editar/grupos', [GruposController::class, 'GruposController@editarGrupo']);
+Route::delete('eliminar/grupo', [GruposController::class, 'GruposController@eliminarGrupo']);
