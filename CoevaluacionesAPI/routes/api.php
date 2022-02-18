@@ -38,7 +38,14 @@ Route::post('registrar/grados', [GradosController::class, 'GradosController@crea
 Route::put('editar/grados', [GradosController::class, 'GradosController@editarGrado']);
 Route::delete('eliminar/grado', [GradosController::class, 'GradosController@eliminarGrado']);
 
+<<<<<<< HEAD
 Route::get('modalidad',[ModalidadesController::class, 'ModalidadesControlle@index']);
 Route::post('crear/modalidad',[ModalidadesController::class,'ModalidadesControlle@store']);
 Route::put('modalidad/editar/{id}', [ModalidadesController::class,'ModalidadesControlle@edit']);
 Route::delete('eliminar/modalidad/{id}',[ModalidadesController::class,'MosalidadesControlle@destroy']);
+=======
+Route::get('grupos', [GruposController::class, 'GruposController@listarGrupos']);
+Route::post('registrar/grupos', [GruposController::class, 'GruposController@crearGrupos']);
+Route::put('editar/grupos', [GruposController::class, 'GruposController@editarGrupo']);
+Route::delete('eliminar/grupo', [GruposController::class, 'GruposController@eliminarGrupo']);
+>>>>>>> d5f3eb6ec899ace5856884acecfc5c2367da419d
