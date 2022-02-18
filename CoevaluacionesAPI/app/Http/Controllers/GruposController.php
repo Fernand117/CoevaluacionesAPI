@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GruposModel;
 use Illuminate\Http\Request;
 
 class GruposController extends Controller
@@ -15,7 +16,7 @@ class GruposController extends Controller
     public function crearGrupo(Request $request)
     {
         $datos = $request->all();
-        $grupo = new GradosModel();
+        $grupo = new GruposModel();
 
         $grupo->grupo = $datos['grupo'];
         $grupo->estado = '1';
