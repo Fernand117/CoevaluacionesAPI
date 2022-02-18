@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('clave');
-            $table->Boleand('estado');
+            $table->string('estado');
             $table->timestamps();
         });
     }

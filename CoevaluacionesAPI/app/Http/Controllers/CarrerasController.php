@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 
 class CarrerasController extends Controller
 {
- //
     public function listarCarreras()
     {
-        $grados = CarrerasModel::all();
-        return response()->json(['Status' => 200, 'Mensaje' => 'Lista de carreras', 'Datos' => $Carreras], 200);
+        $carreras = CarrerasModel::all();
+        return response()->json(['Status' => 200, 'Mensaje' => 'Lista de carreras', 'Datos' => $carreras], 200);
     }
 
     public function crearGrupo(Request $request)

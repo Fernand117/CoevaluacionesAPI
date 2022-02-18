@@ -11,7 +11,7 @@ use SebastianBergmann\ObjectEnumerator\Exception;
 class ModalidadesController extends Controller
 {
     //
-    
+
 
          public function index(){
         $data = ModalidadesModel::where('Estado','=',1)->get();
@@ -19,12 +19,12 @@ class ModalidadesController extends Controller
         foreach($data as $key => $value){
            $Modalidades[$key] = [
                 'id'=>$value['id'],
-                'Modalidad'=>$value['Modalidad'],
+                'modalidad'=>$value['Modalidad'],
                 'clave'=>$value['clave'],
-                'Estatdo'=>$value['Estado'],
+                'estatdo'=>$value['Estado'],
             ];
-           
-         } 
+
+         }
          return response()->json($Modalidades);
 
 
@@ -34,9 +34,9 @@ class ModalidadesController extends Controller
         DB::beginTransaction();
         try {
             $Modalidades = new ModalidadesModel();
-            $Modalidades->Modalidad =  $datos['Modalidad'];
-            $Modalidades->Clave = $datos['Clave'];
-            $Modalidades->Estado = $datos['Estado'];
+            $Modalidades->modalidad =  $datos['Modalidad'];
+            $Modalidades->clave = $datos['Clave'];
+            $Modalidades->estado = $datos['Estado'];
             $Modalidades->save();
 
             DB::commit();
@@ -50,14 +50,14 @@ class ModalidadesController extends Controller
     {
         //
         $otraVar = ModalidadesModel::find($id);
-        
+
         $masvar = [
             'id'=>$otraVar['id'],
-            'Modalidad'=>$otraVar['Modalidad'],
-            'Clave'=>$otraVar['Clave'],
-            'Estado'=>$otraVar['Estado'],
+            'modalidad'=>$otraVar['Modalidad'],
+            'clave'=>$otraVar['Clave'],
+            'estado'=>$otraVar['Estado'],
         ];
-        return response()->json($masvar);        
+        return response()->json($masvar);
     }
     public function update(Request $request, $id)
     {
@@ -66,9 +66,9 @@ class ModalidadesController extends Controller
         DB::beginTransaction();
         try {
             $Modalidades = ModalidadesModel::find($id);
-            $Modalidades->Modalidad =  $datos['Modalidad'];
-            $Modalidades->Clave =  $datos['Clave'];
-            $Modalidades->Estado =  $datos['Estado'];
+            $Modalidades->modalidad =  $datos['Modalidad'];
+            $Modalidades->clave =  $datos['Clave'];
+            $Modalidades->estado =  $datos['Estado'];
             $Modalidades->update();
 
             DB::commit();
@@ -77,14 +77,14 @@ class ModalidadesController extends Controller
             DB::rollBack();
             return response()->json(array('success' => false));
         }
-        
+
 
 }
 public function destroy($id)
     {
-        
+
         $Modalidades = ModalidadesModel::find($id);
-        $Modalidades->estatus=0;
+        $Modalidades->estado='0';
         $Modalidades->update();
         return response()->json(array('success' => true));
     }

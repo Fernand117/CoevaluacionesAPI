@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class GruposModel extends Model
 {
     use HasFactory;
+    protected $table = 'grupos';
+    protected $fillabel = [
+        'grupo', 'estado'
+    ];
 }
