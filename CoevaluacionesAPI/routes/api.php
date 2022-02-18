@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CampusController;
 use App\Http\Controllers\GradosController;
+use App\Http\Controllers\ModalidadesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +37,8 @@ Route::get('grados', [GradosController::class, 'GradosController@listarGrados'])
 Route::post('registrar/grados', [GradosController::class, 'GradosController@crearGrado']);
 Route::put('editar/grados', [GradosController::class, 'GradosController@editarGrado']);
 Route::delete('eliminar/grado', [GradosController::class, 'GradosController@eliminarGrado']);
+
+Route::get('modalidad',[ModalidadesController::class, 'ModalidadesControlle@index']);
+Route::post('crear/modalidad',[ModalidadesController::class,'ModalidadesControlle@store']);
+Route::put('modalidad/editar/{id}', [ModalidadesController::class,'ModalidadesControlle@edit']);
+Route::delete('eliminar/modalidad/{id}',[ModalidadesController::class,'MosalidadesControlle@destroy']);
