@@ -14,14 +14,14 @@ class ModalidadesController extends Controller
     
 
          public function index(){
-        $data = ModalidadesModel::where('Estado','=',1)->get();
+        $data = ModalidadesModel::where('estatus','=',1)->get();
         $Modalidades= [];
         foreach($data as $key => $value){
            $Modalidades[$key] = [
                 'id'=>$value['id'],
                 'Modalidad'=>$value['Modalidad'],
                 'clave'=>$value['clave'],
-                
+                'Estatdo'=>$value['Estado'],
             ];
            
          } 
@@ -36,7 +36,7 @@ class ModalidadesController extends Controller
             $Modalidades = new ModalidadesModel();
             $Modalidades->Modalidad =  $datos['Modalidad'];
             $Modalidades->Clave = $datos['Clave'];
-            
+            $Modalidades->Estado = $datos['Estado'];
             $Modalidades->save();
 
             DB::commit();
@@ -55,7 +55,7 @@ class ModalidadesController extends Controller
             'id'=>$otraVar['id'],
             'Modalidad'=>$otraVar['Modalidad'],
             'Clave'=>$otraVar['Clave'],
-            
+            'Estado'=>$otraVar['Estado'],
         ];
         return response()->json($masvar);        
     }
@@ -68,7 +68,7 @@ class ModalidadesController extends Controller
             $Modalidades = ModalidadesModel::find($id);
             $Modalidades->Modalidad =  $datos['Modalidad'];
             $Modalidades->Clave =  $datos['Clave'];
-            
+            $Modalidades->Estado =  $datos['Estado'];
             $Modalidades->update();
 
             DB::commit();
@@ -84,7 +84,7 @@ public function destroy($id)
     {
         
         $Modalidades = ModalidadesModel::find($id);
-        $Modalidades->Estado=0;
+        $Modalidades->estatus=0;
         $Modalidades->update();
         return response()->json(array('success' => true));
     }
