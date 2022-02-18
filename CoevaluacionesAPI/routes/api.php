@@ -49,6 +49,11 @@ Route::post('crear/periodo', [PeriodosController::class, 'PeriodosController@cre
 Route::put('editar/periodo', [PeriodosController::class, 'PeriodosController@editarPeriodos']);
 Route::delete('eliminar/periodo', [PeriodosController::class, 'PeriodosController@eliminarPeriodos']);
 
+Route::get('modalidad',[ModalidadesController::class, 'ModalidadesControlle@index']);
+Route::post('crear/modalidad',[ModalidadesController::class,'ModalidadesControlle@store']);
+Route::put('modalidad/editar/{id}', [ModalidadesController::class,'ModalidadesControlle@edit']);
+Route::delete('eliminar/modalidad/{id}',[ModalidadesController::class,'MosalidadesControlle@destroy']);
+
 Route::get('grupos', [GruposController::class, 'GruposController@listarGrupos']);
 Route::post('registrar/grupos', [GruposController::class, 'GruposController@crearGrupos']);
 Route::put('editar/grupos', [GruposController::class, 'GruposController@editarGrupo']);

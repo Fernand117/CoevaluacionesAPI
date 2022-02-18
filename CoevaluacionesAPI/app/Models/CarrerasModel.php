@@ -10,6 +10,6 @@ class CarrerasModel extends Model
     use HasFactory;
     protected $table='carreras';
     protected $fillabe=[
-        'Nombre','Clave','Estado'  
+        'nombre','clave','estado'
     ];
 }
