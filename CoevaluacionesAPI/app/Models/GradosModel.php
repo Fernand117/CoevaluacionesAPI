@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CampusModel extends Model
+class GradosModel extends Model
 {
     use HasFactory;
-    protected $table = 'campus';
+    protected $table = 'grados';
     protected $fillabel = [
-        'nombre', 'clave', 'estado'
+        'grado', 'estado'
     ];
 }
