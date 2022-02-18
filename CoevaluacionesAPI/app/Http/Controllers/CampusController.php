@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use TheSeer\Tokenizer\Exception;
+use Illuminate\Support\Facades\App;
+use App\Models\CampusModel;
+use Illuminate\Support\Facades\DB;
 
 class CampusController extends Controller
 {
     
         public function index(){
-            $data = campus::where('Estado','=',1)->get();
+            $data = CampusModel::where('Estado','=',1)->get();
             $campus= [];
             foreach($data as $key => $value){
                $campus[$key] = [
@@ -27,7 +31,7 @@ class CampusController extends Controller
             $datos = $request->all();
             DB::beginTransaction();
             try {
-                $campus = new Campus();
+                $campus = new CampusModel();
                 $campus->Nombre =  $datos['Nombre'];
                 $campus->Clave = $datos['Clave'];
                 $campus->Estado = $datos['Estado'];
@@ -43,7 +47,7 @@ class CampusController extends Controller
         public function edit($id)
         {
             //
-            $otraVar = Campus::find($id);
+            $otraVar = CampusModel::find($id);
             
             $masvar = [
                 'id'=>$otraVar['id'],
@@ -59,7 +63,7 @@ class CampusController extends Controller
             $datos = $request->all();
             DB::beginTransaction();
             try {
-                $campus = Campus::find($id);
+                $campus = CampusModel::find($id);
                 $campus->Nombre =  $datos['Nombre'];
                 $campus->Clave =  $datos['Clave'];
                 $campus->Estado =  $datos['Estado'];
@@ -77,7 +81,7 @@ class CampusController extends Controller
     public function destroy($id)
         {
             
-            $campus = Campus::find($id);
+            $campus = CampusModel::find($id);
             $campus->Estado=0;
             $campus->update();
             return response()->json(array('success' => true));
