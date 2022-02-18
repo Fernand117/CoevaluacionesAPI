@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CampusController;
+use App\Http\Controllers\CarrerasController;
 use App\Http\Controllers\GradosController;
+use App\Http\Controllers\PeriodosController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +38,16 @@ Route::get('grados', [GradosController::class, 'GradosController@listarGrados'])
 Route::post('registrar/grados', [GradosController::class, 'GradosController@crearGrado']);
 Route::put('editar/grados', [GradosController::class, 'GradosController@editarGrado']);
 Route::delete('eliminar/grado', [GradosController::class, 'GradosController@eliminarGrado']);
+
+Route::get('carreras', [CarrerasController::class, 'CarrerasController@listarCarreras']);
+Route::post('crear/carrera', [CarrerasController::class, 'CarrerasController@crearGrupo']);
+Route::put('editar/carrera', [CarrerasController::class, 'CarrerasController@editarCarrera']);
+Route::delete('eliminar/carrera', [CarrerasController::class, 'CarrerasController@eliminarCarrera']);
+
+Route::get('periodos', [PeriodosController::class, 'PeriodosController@listarPeriodos']);
+Route::post('crear/periodo', [PeriodosController::class, 'PeriodosController@crearPeriodos']);
+Route::put('editar/periodo', [PeriodosController::class, 'PeriodosController@editarPeriodos']);
+Route::delete('eliminar/periodo', [PeriodosController::class, 'PeriodosController@eliminarPeriodos']);
 
 Route::get('grupos', [GruposController::class, 'GruposController@listarGrupos']);
 Route::post('registrar/grupos', [GruposController::class, 'GruposController@crearGrupos']);
