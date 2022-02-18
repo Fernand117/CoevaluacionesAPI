@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Person;
+use App\Models\User;
+use DB;
 
 class UsuarioController extends Controller
 {
@@ -42,7 +45,7 @@ class UsuarioController extends Controller
         try {
             $usuarios = new User();
             $usuarios->name = $datos['paterno']." ".$datos['materno']." ".$datos['nombre'];
-            $usuarios->email = $datos['usuario'];
+            $usuarios->email = $datos['email'];
             $usuarios->password =bcrypt($datos['password']);
             $usuarios->save();
 
