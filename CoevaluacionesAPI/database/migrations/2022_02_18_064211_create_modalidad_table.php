@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('Modalidad');
             $table->integer('Clave');
-            $table->string('Estado');
-            $table->boolean('estatus');
+            $table->boolean('Estado');
             $table->timestamps();
         });
     }

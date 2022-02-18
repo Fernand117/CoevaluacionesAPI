@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ModalidadesModel extends Model
 {
     use HasFactory;
+    protected $table="modalidades";
+    protected $hidden = [
+        
+        'Modalidad','clave'
+    ];
 }
