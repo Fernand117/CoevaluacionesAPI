@@ -5,18 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Person;
 use App\Models\User;
-use DB;
+use Exception;
+use Illuminate\Support\Facades\DB;
 
 class UsuarioController extends Controller
 {
    /**
-     * Display a listing of the resource.   
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $data = Person::where('estatus','=',1)->get();
+        $data = Person::where('estado','=',1)->get();
         $personas = [];
         foreach($data as $key => $value){
            $usuarios[$key] = [
@@ -24,9 +25,9 @@ class UsuarioController extends Controller
                 'paterno'=>$value['paterno'],
                 'materno'=>$value['materno'],
                 'nombre'=>$value['nombre'],
-                
+
                 'correo'=>$value->usuarios->email,
-                'estatus'=>$value['estatus'],
+                'estado'=>$value['estado'],
              ];
         }
         return response()->json($usuarios);
@@ -53,7 +54,7 @@ class UsuarioController extends Controller
             $persona->paterno =  $datos['paterno'];
             $persona->materno =  $datos['materno'];
             $persona->nombre =  $datos['nombre'];
-            $persona->estatus=1;
+            $persona->estado=1;
             $persona->id_usuario=$usuarios->id;
             $persona->save();
             DB::commit();
@@ -75,16 +76,16 @@ class UsuarioController extends Controller
         //
         $otraVar = Person::find($id);
         $otroDato = User::where('id','=',$otraVar->id_usuario)->first();
-        
+
         $masvar = [
             'id'=>$otraVar['id'],
             'paterno'=>$otraVar['paterno'],
             'materno'=>$otraVar['materno'],
             'nombre'=>$otraVar['nombre'],
-            
+
             'correo'=>$otroDato['email']
         ];
-        return response()->json($masvar);        
+        return response()->json($masvar);
     }
 
     /**
@@ -104,7 +105,7 @@ class UsuarioController extends Controller
             $persona->paterno =  $datos['paterno'];
             $persona->materno =  $datos['materno'];
             $persona->nombre =  $datos['nombre'];
-            
+
             $persona->update();
 
             $usuarios = User::where('id','=',$persona->id_usuario)->first();
@@ -131,7 +132,7 @@ class UsuarioController extends Controller
     {
         //
         $persona = Person::find($id);
-        $persona->estatus=0;
+        $persona->estado=0;
         $persona->update();
         return response()->json(array('success' => true));
     }
