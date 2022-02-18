@@ -10,7 +10,8 @@ use DB;
 class UsuarioController extends Controller
 {
    /**
-     * Display a listing of the resource.   
+     * Display a listing of the resource.
+     * Index funcion
      *
      * @return \Illuminate\Http\Response
      */
