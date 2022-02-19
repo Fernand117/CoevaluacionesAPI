@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('periodos', function (Blueprint $table) {
             $table->id();
-            $table->varchar('periodo');
+            $table->string('periodo');
             $table->string('estado');
             $table->timestamps();
         });
