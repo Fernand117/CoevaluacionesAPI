@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\CampusController;
+use App\Http\Controllers\CarrerasController;
 use App\Http\Controllers\GradosController;
-use App\Http\Controllers\ModalidadesController;
+use App\Http\Controllers\PeriodosController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,14 +39,22 @@ Route::post('registrar/grados', [GradosController::class, 'GradosController@crea
 Route::put('editar/grados', [GradosController::class, 'GradosController@editarGrado']);
 Route::delete('eliminar/grado', [GradosController::class, 'GradosController@eliminarGrado']);
 
-<<<<<<< HEAD
+Route::get('carreras', [CarrerasController::class, 'CarrerasController@listarCarreras']);
+Route::post('crear/carrera', [CarrerasController::class, 'CarrerasController@crearGrupo']);
+Route::put('editar/carrera', [CarrerasController::class, 'CarrerasController@editarCarrera']);
+Route::delete('eliminar/carrera', [CarrerasController::class, 'CarrerasController@eliminarCarrera']);
+
+Route::get('periodos', [PeriodosController::class, 'PeriodosController@listarPeriodos']);
+Route::post('crear/periodo', [PeriodosController::class, 'PeriodosController@crearPeriodos']);
+Route::put('editar/periodo', [PeriodosController::class, 'PeriodosController@editarPeriodos']);
+Route::delete('eliminar/periodo', [PeriodosController::class, 'PeriodosController@eliminarPeriodos']);
+
 Route::get('modalidad',[ModalidadesController::class, 'ModalidadesControlle@index']);
 Route::post('crear/modalidad',[ModalidadesController::class,'ModalidadesControlle@store']);
 Route::put('modalidad/editar/{id}', [ModalidadesController::class,'ModalidadesControlle@edit']);
 Route::delete('eliminar/modalidad/{id}',[ModalidadesController::class,'MosalidadesControlle@destroy']);
-=======
+
 Route::get('grupos', [GruposController::class, 'GruposController@listarGrupos']);
 Route::post('registrar/grupos', [GruposController::class, 'GruposController@crearGrupos']);
 Route::put('editar/grupos', [GruposController::class, 'GruposController@editarGrupo']);
 Route::delete('eliminar/grupo', [GruposController::class, 'GruposController@eliminarGrupo']);
->>>>>>> d5f3eb6ec899ace5856884acecfc5c2367da419d
