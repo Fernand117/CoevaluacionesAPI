@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ModalidadesModel extends Model
 {
     use HasFactory;
-    protected $table = 'modalidades';
+    public $timestamps = false;
+    protected $table = 'modalidad';
     protected $fillabel = [
         'Modalidad', 'Clave', 'Estado'
     ];

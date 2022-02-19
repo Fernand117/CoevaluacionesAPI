@@ -3,7 +3,10 @@
 use App\Http\Controllers\CampusController;
 use App\Http\Controllers\CarrerasController;
 use App\Http\Controllers\GradosController;
+use App\Http\Controllers\GruposController;
+use App\Http\Controllers\ModalidadesController;
 use App\Http\Controllers\PeriodosController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,32 +32,32 @@ Route::get('/usuarios/{id}',[UsuarioController::class,'edit']);
 Route::put('/usuarios/{id}',[UsuarioController::class,'update']);
 Route::delete('/usuarios/{id}',[UsuarioController::class,'delete']);
 
-Route::get('campus', [CampusController::class, 'CampusController@index']);
-Route::post('crear/campus', [CampusController::class, 'CampusController@store']);
-Route::put('campust/editar/{id}', [CampusController::class, 'CampusController@edit']);
-Route::delete('eliminar/campus/{id}', [CampusController::class, 'CampusController@destroy']);
+Route::get('campus', [CampusController::class, 'index']);
+Route::post('crear/campus', [CampusController::class, 'store']);
+Route::put('campust/editar/{id}', [CampusController::class, 'edit']);
+Route::delete('eliminar/campus/{id}', [CampusController::class, 'destroy']);
 
-Route::get('grados', [GradosController::class, 'GradosController@listarGrados']);
-Route::post('registrar/grados', [GradosController::class, 'GradosController@crearGrado']);
-Route::put('editar/grados', [GradosController::class, 'GradosController@editarGrado']);
-Route::delete('eliminar/grado', [GradosController::class, 'GradosController@eliminarGrado']);
+Route::get('grados', [GradosController::class, 'listarGrados']);
+Route::post('registrar/grados', [GradosController::class, 'crearGrado']);
+Route::put('editar/grados', [GradosController::class, 'editarGrado']);
+Route::delete('eliminar/grado', [GradosController::class, 'eliminarGrado']);
 
-Route::get('carreras', [CarrerasController::class, 'CarrerasController@listarCarreras']);
-Route::post('crear/carrera', [CarrerasController::class, 'CarrerasController@crearGrupo']);
-Route::put('editar/carrera', [CarrerasController::class, 'CarrerasController@editarCarrera']);
-Route::delete('eliminar/carrera', [CarrerasController::class, 'CarrerasController@eliminarCarrera']);
+Route::get('carreras', [CarrerasController::class, 'listarCarreras']);
+Route::post('crear/carrera', [CarrerasController::class, 'crearGrupo']);
+Route::put('editar/carrera', [CarrerasController::class, 'editarCarrera']);
+Route::delete('eliminar/carrera', [CarrerasController::class, 'eliminarCarrera']);
 
-Route::get('periodos', [PeriodosController::class, 'PeriodosController@listarPeriodos']);
-Route::post('crear/periodo', [PeriodosController::class, 'PeriodosController@crearPeriodos']);
-Route::put('editar/periodo', [PeriodosController::class, 'PeriodosController@editarPeriodos']);
-Route::delete('eliminar/periodo', [PeriodosController::class, 'PeriodosController@eliminarPeriodos']);
+Route::get('periodos', [PeriodosController::class, 'listarPeriodos']);
+Route::post('crear/periodo', [PeriodosController::class, 'crearPeriodos']);
+Route::put('editar/periodo', [PeriodosController::class, 'editarPeriodos']);
+Route::delete('eliminar/periodo', [PeriodosController::class, 'eliminarPeriodos']);
 
-Route::get('modalidad',[ModalidadesController::class, 'ModalidadesControlle@index']);
-Route::post('crear/modalidad',[ModalidadesController::class,'ModalidadesControlle@store']);
-Route::put('modalidad/editar/{id}', [ModalidadesController::class,'ModalidadesControlle@edit']);
-Route::delete('eliminar/modalidad/{id}',[ModalidadesController::class,'MosalidadesControlle@destroy']);
+Route::get('modalidad',[ModalidadesController::class, 'index']);
+Route::post('crear/modalidad',[ModalidadesController::class,'store']);
+Route::put('modalidad/editar/{id}', [ModalidadesController::class,'edit']);
+Route::delete('eliminar/modalidad/{id}',[ModalidadesController::class,'destroy']);
 
-Route::get('grupos', [GruposController::class, 'GruposController@listarGrupos']);
-Route::post('registrar/grupos', [GruposController::class, 'GruposController@crearGrupos']);
-Route::put('editar/grupos', [GruposController::class, 'GruposController@editarGrupo']);
-Route::delete('eliminar/grupo', [GruposController::class, 'GruposController@eliminarGrupo']);
+Route::get('grupos', [GruposController::class, 'listarGrupos']);
+Route::post('registrar/grupos', [GruposController::class, 'crearGrupo']);
+Route::put('editar/grupos', [GruposController::class, 'editarGrupo']);
+Route::delete('eliminar/grupo', [GruposController::class, 'eliminarGrupo']);

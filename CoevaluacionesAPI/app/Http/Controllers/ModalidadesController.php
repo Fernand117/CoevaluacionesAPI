@@ -34,9 +34,9 @@ class ModalidadesController extends Controller
         DB::beginTransaction();
         try {
             $Modalidades = new ModalidadesModel();
-            $Modalidades->modalidad =  $datos['Modalidad'];
-            $Modalidades->clave = $datos['Clave'];
-            $Modalidades->estado = $datos['Estado'];
+            $Modalidades->Modalidad =  $datos['Modalidad'];
+            $Modalidades->Clave = $datos['Clave'];
+            $Modalidades->Estado = $datos['Estado'];
             $Modalidades->save();
 
             DB::commit();
